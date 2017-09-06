@@ -91,7 +91,7 @@ Before you begin, here's a quick look at the steps you can expect to complete:
     For finer-grained checks and more advanced scenarios, use the `hasPermission()` function in conjunction with `container.unauthorized()` to react to limited access.
 
     ```ts
-    MsPortalFx.Extension.hasPermission(resourceUri, [ExtensionDefinition.AssetTypes.Robot.Permissions.read])
+    MsPortalFx.Base.Security.hasPermission(resourceUri, [ExtensionDefinition.AssetTypes.Robot.Permissions.read])
         .then((hasAccess) => {
             if (!hasAccess) { container.unauthorized(); return; }
             /* do awesome stuff */
@@ -338,7 +338,7 @@ In some cases, you may need to check access in TypeScript. A few examples includ
 To check access via PDL, call the `hasPermission()` API:
 
 ```ts
-MsPortalFx.Extension.hasPermission(​
+MsPortalFx.Base.Security.hasPermission(​
     resourceUri, ​
     [ExtensionDefinition.Assets.Robot.Permissions.read]​
 ).then((hasAccess) => { ​
@@ -359,7 +359,7 @@ Note that you can also reference the permission definition from TypeScript in th
 Before adding any UI that requires access to RDFE, be sure to check RDFE access (e.g. service and co-admin) by checking for "rdfe" permission. TypeScript would look like the following, as an example:
 
 ```ts
-MsPortalFx.Extension.hasPermission(​resourceUri, ​["rdfe"]​).then((hasAccess) => { ​
+MsPortalFx.Base.Security.hasPermission(​resourceUri, ​["rdfe"]​).then((hasAccess) => { ​
     if (!hasAccess) { container.unauthorized(); return; }​
     /* do awesome stuff */ ​
 });
